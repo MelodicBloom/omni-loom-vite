@@ -1,0 +1,42 @@
+{
+  "slug": "omni-loom",
+  "title": "Omni-Loom",
+  "tagline": "Deterministic generative compilation for cyber-physical creativity.",
+  "thesis": "As AI moves from content generation into cyber-physical production, creativity needs deterministic pipelines, not opaque improvisation.",
+  "problem": "Generative AI systems are powerful but fundamentally untrustworthy for physical or production-grade workflows. Prompt-based systems mutate intent, produce non-reproducible outputs, skip geometry validation, ignore calibration, and dispatch fabrication without audit trails. When AI output moves into interfaces, materials, and machines, black-box improvisation becomes a liability.",
+  "architecture": [
+    { "name": "FrayNode", "type": "Semantic front-end router", "responsibility": "Converts raw human intent into a structured JobEnvelope without executing anything.", "inputs": ["Natural language intent"], "outputs": ["JobEnvelope"], "constraints": ["No execution", "No geometry generation", "No fabrication dispatch"] },
+    { "name": "CSA Tool Orchestration API", "type": "Orchestration layer", "responsibility": "Generates deterministic ToolPlans and calls only approved tools.", "inputs": ["JobEnvelope"], "outputs": ["ToolPlan"], "constraints": ["Schema validation required", "Only allowlisted tools may run"] },
+    { "name": "Deterministic Tool Registry", "type": "Execution boundary", "responsibility": "Controls which tools can execute and ensures outputs are reproducible.", "inputs": ["ToolPlan"], "outputs": ["Tool execution results"], "constraints": ["No random execution", "No model-generated geometry"] },
+    { "name": "WebGPU/WASM Runtime", "type": "Runtime layer", "responsibility": "Separates rendering, physics, and interaction behavior into controlled layers.", "inputs": ["Validated runtime state"], "outputs": ["Interactive visual preview"], "constraints": ["Idle suspension", "Fallback rendering", "No blocking main thread"] },
+    { "name": "Shytech", "type": "Governance pattern", "responsibility": "Keeps expensive or sensitive systems dormant until intentionally activated.", "inputs": ["User activation", "runtime state"], "outputs": ["Active or dormant system behavior"], "constraints": ["Default idle", "No unauthorized activation"] },
+    { "name": "CMYO Fabrication Bridge", "type": "Cyber-physical compiler layer", "responsibility": "Transforms validated geometry into artifact-ready fabrication previews.", "inputs": ["Validated geometry", "device constraints", "calibration profile"], "outputs": ["Artifact manifest", "preview output"], "constraints": ["Calibration required", "Fabrication dispatch locked"] },
+    { "name": "CNC/Laser/Embroidery Adapters", "type": "Extension adapters", "responsibility": "Translate validated artifact data into process-specific preview formats.", "inputs": ["Artifact manifest", "validated vectors"], "outputs": ["Preview-only G-code/SVG/stitch-plan"], "constraints": ["No physical dispatch", "No double compensation", "Closed contours required"] }
+  ],
+  "pipeline": [
+    { "step": 1, "label": "Human Intent", "description": "Natural language creative directive entered by the user." },
+    { "step": 2, "label": "FrayNode", "description": "Parses and structures intent into a validated JobEnvelope." },
+    { "step": 3, "label": "JobEnvelope", "description": "Structured representation of user intent before any execution." },
+    { "step": 4, "label": "CSA Tool Orchestration", "description": "Generates a deterministic ToolPlan from the JobEnvelope." },
+    { "step": 5, "label": "ToolPlan", "description": "Ordered sequence of approved, deterministic tool calls." },
+    { "step": 6, "label": "Geometry Validation", "description": "Vector cleansing, closed-contour checks, and self-intersection removal." },
+    { "step": 7, "label": "Artifact Manifest", "description": "Traceable output record with checksum, metadata, and validation status." },
+    { "step": 8, "label": "Fabrication Output", "description": "Preview-only. Physical dispatch intentionally locked." }
+  ],
+  "skills": [
+    { "skill": "AI Workflow Architecture", "evidence": "Designed multi-stage deterministic pipeline from intent to artifact." },
+    { "skill": "Cyber-Physical Systems Design", "evidence": "Specified CMYO fabrication bridge, CNC/Laser/Embroidery adapter contracts." },
+    { "skill": "Schema-First Engineering", "evidence": "All pipeline stages validated against TypeScript interfaces and JSON schemas." },
+    { "skill": "Governance Pattern Design", "evidence": "Shytech dormant-runtime pattern prevents unauthorized system activation." },
+    { "skill": "Creative Technologist", "evidence": "Unified generative creativity with engineering-grade auditability." },
+    { "skill": "Generative Interface Research", "evidence": "Proposed compiler metaphor as alternative to black-box prompt-response loops." }
+  ],
+  "roadmap": [
+    { "phase": "Phase 1", "name": "Static Case Study", "status": "complete", "description": "Case study readable, navigable, and live. Full content, schema, and component system shipped." },
+    { "phase": "Phase 2", "name": "Architecture Visualization", "status": "complete", "description": "Interactive SVG diagram, pipeline stepper, and architecture cards render from structured data." },
+    { "phase": "Phase 3", "name": "Interactive Demo", "status": "complete", "description": "Simulated compiler demo: intent input \u2192 JobEnvelope \u2192 ToolPlan \u2192 QA gates \u2192 artifact manifest." },
+    { "phase": "Phase 4", "name": "Spec Pack", "status": "in-progress", "description": "Downloadable schemas, QA gate checklists, ToolPlan contracts, and implementation prompts." },
+    { "phase": "Phase 5", "name": "Funding Package", "status": "planned", "description": "Grant summary, pilot proposal, partner outreach template, and licensing model overview." },
+    { "phase": "Phase 6", "name": "Runtime Prototype", "status": "future", "description": "Real Zod validation, deterministic tool registry, WASM geometry worker, calibration profile management." }
+  ]
+}
