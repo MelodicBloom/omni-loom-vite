@@ -10,11 +10,11 @@ export default function SectionHeading({ label, title, description }: SectionHea
   return (
     <div className="mb-10">
       <p className="text-xs font-mono tracking-[0.2em] text-[#22D3EE] uppercase mb-3">{label}</p>
-      <h2 className="text-3xl md:text-4xl font-bold text-[#F8FAFC] mb-3" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+      <h2 className="text-3xl md:text-4xl font-bold text-[#F8FAFC] mb-4" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
         {title}
       </h2>
       {description && (
-        <p className="text-[#94A3B8] max-w-2xl leading-relaxed">{description}</p>
+        <p className="text-[#94A3B8] max-w-xl leading-relaxed">{description}</p>
       )}
     </div>
   );
