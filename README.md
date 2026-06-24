@@ -2,7 +2,18 @@
 
 > Deterministic generative compilation for cyber-physical creativity.
 
-Vite + React + TypeScript + Tailwind CSS. Pure static output — deploys to any CDN.
+Vite + React + TypeScript + Tailwind CSS port of the Omni-Loom flagship case study.
+Outputs a pure static bundle — zero server required, deploys to any CDN.
+
+## Stack
+
+| Tool | Purpose |
+|---|---|
+| Vite 5 | Sub-second HMR, pure static output |
+| React 18 | Same component model as Next.js build |
+| TypeScript 5 | Strict mode, same schema contracts |
+| Tailwind CSS 3 | Same visual token system |
+| clsx + tailwind-merge | Class composition |
 
 ## Dev
 
@@ -17,8 +28,11 @@ npm run preview    # serve dist/ locally
 ## Deploy
 
 ```bash
-npx wrangler pages deploy dist   # Cloudflare Pages
-vercel --prod                    # Vercel
+# Vercel (zero config)
+vercel --prod
+
+# Cloudflare Pages
+npx wrangler pages deploy dist
 ```
 
 ## Source of Truth
