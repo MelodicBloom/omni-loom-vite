@@ -1,4 +1,3 @@
-// Reusable schema for all portfolio case studies
 export interface ArchitectureBlock {
   name: string;
   type: string;
